@@ -1,0 +1,27 @@
+{
+    "configurations": [
+        {
+            "name": "emsdk",
+            "includePath": [
+                "/Users/sakrist/Developer/emsdk/upstream/emscripten/cache/sysroot/include/**",
+                "${workspaceFolder}/**"
+            ],
+            "defines": [
+                "${default}"
+            ],
+            "compileCommands": "${default}",
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "${default}",
+                "path": [
+                    "${default}"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "cStandard": "${default}",
+            "cppStandard": "c++17",
+            "compilerPath": "${default}"
+        }
+    ],
+    "version": 4
+}

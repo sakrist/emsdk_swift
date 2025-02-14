@@ -1,0 +1,9 @@
+{
+    "swift.path": "/Users/sakrist/Library/Developer/Toolchains/swift-wasm-6.0.2-RELEASE.xctoolchain/usr/bin",
+    "lldb.library": "/Users/sakrist/Library/Developer/Toolchains/swift-wasm-6.0.2-RELEASE.xctoolchain/System/Library/PrivateFrameworks/LLDB.framework/Versions/A/LLDB",
+    "lldb.launch.expressions": "native",
+    "files.associations": {
+        "iostream": "cpp",
+        "vector": "cpp"
+    }
+}
