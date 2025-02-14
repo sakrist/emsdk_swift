@@ -65,6 +65,4 @@ To run the application:
 emrun --serve_after_exit --serve_after_close --no_browser app-demo.html
 ```
 
-## License
 
-[Your license information here]
