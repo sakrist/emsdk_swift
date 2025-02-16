@@ -11,9 +11,5 @@ func hello() {
   print_sw("Hello, World from Swift!")
 }
 
-@_cdecl("add")
-func add(_ a:Int, _ b:Int) -> Int {
-  return a + b
-}
 
 
