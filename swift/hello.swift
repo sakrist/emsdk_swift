@@ -11,5 +11,3 @@ func hello() {
   print_sw("Hello, World from Swift!")
 }
 
-
-
