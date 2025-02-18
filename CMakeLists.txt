@@ -32,10 +32,10 @@ endif()
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 
-# add_subdirectory(swift)
-# add_dependencies(${PROJECT_NAME} SwiftLibrary)
+add_subdirectory(swift)
+add_dependencies(${PROJECT_NAME} SwiftLibrary)
 
-# target_link_libraries(${PROJECT_NAME} PRIVATE ${CMAKE_BINARY_DIR}/libhello.a)
-target_link_libraries(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/swift_package/hello.o)
+target_link_libraries(${PROJECT_NAME} PRIVATE ${CMAKE_BINARY_DIR}/libhello.a)
+# target_link_libraries(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/swift_package/hello.o)
 set_target_properties(${PROJECT_NAME} PROPERTIES
         LINK_FLAGS "${EMSCRIPTEN_FLAGS}" )
