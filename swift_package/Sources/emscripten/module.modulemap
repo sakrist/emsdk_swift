@@ -1,4 +1,0 @@
-module emscripten_asm {
-    header "emscripten_asm.h"
-    export *
-}

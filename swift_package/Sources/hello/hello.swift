@@ -1,3 +1,5 @@
+
+
 @_extern(wasm, module: "env", name: "emscripten_console_log")
 // @_extern(c)
 func emscripten_console_log(_ address: UnsafePointer<UInt8>)

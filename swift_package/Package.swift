@@ -3,6 +3,12 @@
 
 import PackageDescription
 
+#if os(Linux)
+import Glibc
+#else
+import Darwin.C
+#endif
+
 let embeddedSwiftSettings: [SwiftSetting] = [
     .enableExperimentalFeature("Embedded"),
     .enableExperimentalFeature("Extern"),
@@ -17,10 +23,33 @@ let embeddedCSettings: [CSetting] = [
     .unsafeFlags(["-fdeclspec"])
 ]
 
+guard let EMSDKptr = getenv("EMSDK") else {
+    fatalError("EMSDK environment variable not set")
+}
+
+let EMSDK:String = String(cString: EMSDKptr)
+
+
 let linkerSettings: [LinkerSetting] = [
     .unsafeFlags([
+        "-L\(EMSDK)/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten",
+        "\(EMSDK)/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/crt1_reactor.o",
+        "-lc",
+        "-Xlinker", "-lc",
+        "-Xlinker", "-ldlmalloc",
+        "-Xlinker", "-lcompiler_rt",
+        "-Xlinker", "-lstubs",
+        "-Xlinker", "-lal",
+        "-Xlinker", "-lc++",
+        "-Xlinker", "-lc++abi",
+        "-Xlinker", "-lembind",
+        "-Xlinker", "-lhtml5",
+        "-Xlinker", "-lnoexit",
+
+        // "-Xlinker", "--allow-undefined",
         "-Xclang-linker", "-nostdlib",
-        "-Xlinker", "--no-entry"
+        "-Xlinker", "--no-entry",
+        "-Xlinker", "--export-all"
     ])
 ]
 

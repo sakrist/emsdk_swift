@@ -1,6 +1,8 @@
 
 Recommended to use VS Code
 
+This is odd example. Using results of Emsdk build.
+
 make sure ../.vscode/settings.json pointing to right wasm toolchain
 
 check that your swift is from toolchain via 
