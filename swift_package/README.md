@@ -8,7 +8,7 @@ check that your swift is from toolchain via
 
 set SWIFT_TOOLCHAIN env variable to make sure swift don't try link with Xcode frameworks
 ```bash
-export SWIFT_TOOLCHAIN=~/Library/Developer/Toolchains/swift-wasm-6.0.2-RELEASE.xctoolchain
+export SWIFT_TOOLCHAIN=/Library/Developer/Toolchains/swift-6.0.3-RELEASE.xctoolchain
 ```
 
 
@@ -16,7 +16,8 @@ Run command to build package
 ```swift
 swift build --triple wasm32-unknown-none-wasm \
  -c release -Xswiftc -Xclang-linker -Xswiftc -mexec-model=reactor \
-  -Xlinker --export=add --export=strerror -Xlinker --export=main 
+  -Xlinker --export=strerror -Xlinker --export=main -Xlinker --export=emscripten_stack_init -Xlinker --export=emscripten_stack_get_current \
+  -Xlinker --export=__funcs_on_exit -Xlinker --export=fflush
  ```
 
 add `-Xlinker --export=__main_argc_argv`
@@ -37,3 +38,8 @@ To export additional functions add this:
 
 Option to specify type of WASM, more read [here](https://dylibso.com/blog/wasi-command-reactor/)
 `-Xswiftc -mexec-model=reactor`
+
+
+`emscripten_stack_init`, `emscripten_stack_get_current`
+is part of compiler-rt
+
