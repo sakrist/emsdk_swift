@@ -5,7 +5,7 @@ This project demonstrates how to integrate Swift code compiled to WebAssembly wi
 ## Prerequisites
 
 - Emscripten SDK
-- Swift WebAssembly Toolchain (swift-wasm-6.0.2-RELEASE)
+- Swift Toolchain (swift-6.0.3-RELEASE)
 - CMake (3.21.0 or higher)
 
 ## Project Structure
@@ -22,9 +22,9 @@ emsdk_swift/
 
 ## Setup Instructions
 
-1. Install Swift WebAssembly Toolchain:
+1. Install Swift Toolchain:
    ```bash
-   # Download and install swift-wasm-6.0.2-RELEASE.xctoolchain
+   # Download and install swift-6.0.3-RELEASE.xctoolchain
    ```
 
 2. Install Emscripten:
@@ -36,12 +36,15 @@ emsdk_swift/
    source ./emsdk_env.sh
    ```
 
+Option to build via SwiftPM.
+Lots of limitations. Not sure if this is even needed until we get some Foundation. 
+
 ## Building the Project
 
 ```bash
 mkdir build
 cd build
-emcmake cmake -DSWIFT_TOOLCHAIN=__path__/swift-wasm-6.0.2-RELEASE.xctoolchain ..
+emcmake cmake -DSWIFT_TOOLCHAIN=__path__/swift-6.0.3-RELEASE.xctoolchain ..
 emmake make
 ```
 
