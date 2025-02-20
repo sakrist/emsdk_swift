@@ -1,4 +1,4 @@
-# Swift + WebAssembly Integration Example
+# Swift Embedded WebAssembly + Emscripten SDK
 
 This project demonstrates how to integrate Swift code compiled to WebAssembly with a C++ application using Emscripten.
 

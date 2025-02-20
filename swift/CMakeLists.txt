@@ -25,8 +25,9 @@ set(AR_COMPILER "${SWIFT_TOOLCHAIN}/usr/bin/llvm-ar")
 
 # Specify the source file
 
-set(SOURCE_FILE "${CMAKE_CURRENT_SOURCE_DIR}/hello.swift")
-set(OUTPUT_FILE "${CMAKE_BINARY_DIR}/hello.o")
+set(SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/hello.swift"
+"${CMAKE_CURRENT_SOURCE_DIR}/add.swift")
+set(OUTPUT_FILE "${CMAKE_BINARY_DIR}/out.o")
 
 set(LIBRARY_NAME "hello")
 set(STATIC_LIB "${CMAKE_BINARY_DIR}/lib${LIBRARY_NAME}.a")
@@ -45,9 +46,9 @@ set(SWIFT_FLAGS
 # Add a custom command to build the object file
 add_custom_command(
     OUTPUT ${OUTPUT_FILE}
-    COMMAND ${SWIFT_COMPILER} ${SWIFT_FLAGS} -c ${SOURCE_FILE} -o ${OUTPUT_FILE}
-    DEPENDS ${SOURCE_FILE}
-    COMMENT "Compiling ${SOURCE_FILE} to WebAssembly object file"
+    COMMAND ${SWIFT_COMPILER} ${SWIFT_FLAGS} -c ${SOURCES} -o ${OUTPUT_FILE}
+    DEPENDS ${SOURCES}
+    COMMENT "Compiling ${SOURCES} to WebAssembly object file"
     VERBATIM
 )
 
