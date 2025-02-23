@@ -23,11 +23,9 @@ let embeddedCSettings: [CSetting] = [
     .unsafeFlags(["-fdeclspec"])
 ]
 
-guard let EMSDKptr = getenv("EMSDK") else {
+guard let EMSDK = Context.environment["EMSDK"] else {
     fatalError("EMSDK environment variable not set")
 }
-
-let EMSDK:String = String(cString: EMSDKptr)
 
 
 let linkerSettings: [LinkerSetting] = [
@@ -45,6 +43,18 @@ let linkerSettings: [LinkerSetting] = [
         "-Xlinker", "-lembind",
         "-Xlinker", "-lhtml5",
         "-Xlinker", "-lnoexit",
+
+        // export
+        "-Xlinker", "--export-if-defined=main",
+        "-Xlinker", "--export-if-defined=fflush",
+        "-Xlinker", "--export=__funcs_on_exit",
+        "-Xlinker", "--export=strerror",
+        "-Xlinker", "--export=emscripten_stack_init",
+        "-Xlinker", "--export=emscripten_stack_get_current",
+        "-Xlinker", "--export-if-defined=__main_argc_argv",
+        "-Xlinker", "--export-table",
+        "-Xlinker", "--max-memory=2147483648",
+    // "-Xlinker", "--initial-heap=16777216",
 
         // "-Xlinker", "--allow-undefined",
         "-Xclang-linker", "-nostdlib",

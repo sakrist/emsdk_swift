@@ -1,9 +1,9 @@
 
 Recommended to use VS Code
 
-This is odd example. Using results of Emsdk build.
+This is odd example. I would say even stupid :D. Using results of Emsdk build from [main readme](../README.md)
 
-make sure ../.vscode/settings.json pointing to right wasm toolchain
+make sure ../.vscode/settings.json pointing to right swift toolchain.
 
 check that your swift is from toolchain via 
 `which swift`
@@ -16,10 +16,7 @@ export SWIFT_TOOLCHAIN=/Library/Developer/Toolchains/swift-6.0.3-RELEASE.xctoolc
 
 Run command to build package
 ```swift
-swift build --triple wasm32-unknown-none-wasm \
- -c release -Xswiftc -Xclang-linker -Xswiftc -mexec-model=reactor \
-  -Xlinker --export=strerror -Xlinker --export=main -Xlinker --export=emscripten_stack_init -Xlinker --export=emscripten_stack_get_current \
-  -Xlinker --export=__funcs_on_exit -Xlinker --export=fflush
+swift build --triple wasm32-unknown-none-wasm -c release -Xswiftc -Xclang-linker -Xswiftc -mexec-model=reactor
  ```
 
 add `-Xlinker --export=__main_argc_argv`

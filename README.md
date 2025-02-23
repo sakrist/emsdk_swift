@@ -67,5 +67,21 @@ To run the application:
 ```bash
 emrun --serve_after_exit --serve_after_close --no_browser app-demo.html
 ```
+or 
+```bash
+npx serve build
+```
+or 
+```bash
+esbuild --servedir=build
+```
 
+
+## Explore build process
+
+```bash
+EMCC_DEBUG=1 emcmake cmake .. -DCMAKE_VERBOSE_MAKEFILE=ON
+
+EMCC_DEBUG=1 VERBOSE=1 emmake make 
+```
 

@@ -1,6 +1,6 @@
 {
-    "swift.path": "/Library/Developer/Toolchains/swift-6.0.3-RELEASE.xctoolchain/usr/bin",
-    "lldb.library": "/Library/Developer/Toolchains/swift-6.0.3-RELEASE.xctoolchain/System/Library/PrivateFrameworks/LLDB.framework/Versions/A/LLDB",
+    "swift.path": "/Library/Developer/Toolchains/swift-6.1-DEVELOPMENT-SNAPSHOT-2025-02-21-a.xctoolchain/usr/bin",
+    "lldb.library": "/Library/Developer/Toolchains/swift-6.1-DEVELOPMENT-SNAPSHOT-2025-02-21-a.xctoolchain/System/Library/PrivateFrameworks/LLDB.framework/Versions/A/LLDB",
     "lldb.launch.expressions": "native",
     "swift.buildArguments": [
         "--triple", "wasm32-unknown-none-wasm",
